@@ -13,18 +13,18 @@ activate :automatic_image_sizes
 activate :syntax # code highlighting
 
 # github userpages deploy
-activate :deploy do |deploy|
-  deploy.method = :git
-  deploy.build_before = true
+#activate :deploy do |deploy|
+  #deploy.method = :git
+  #deploy.build_before = true
   #deploy.branch   = "master"
   #deploy.remote   = "git@github.com:username/username.github.io.git"
-end
+#end
 
 # github project pages deploy
-#activate :deploy do |deploy|
-#  deploy.method = :git
-#  deploy.build_before = true # default: false
-#end
+activate :deploy do |deploy|
+  deploy.method = :git
+  deploy.build_before = true # default: false
+end
 
 # markdown settings
 set :markdown
@@ -58,7 +58,7 @@ ignore '.idea/*'
 configure :build do
   activate :minify_css
   activate :minify_javascript
-  # activate :relative_assets
+  activate :relative_assets
   # activate :cache_buster
   activate :asset_hash
 
