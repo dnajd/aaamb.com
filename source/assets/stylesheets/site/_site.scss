@@ -1,7 +1,9 @@
 // ------------------------------------------------------------
 // Layout
 // ------------------------------------------------------------
-
+body {
+  background-color:#eee;
+}
 // A simple, reusable mixin for applying
 // to the top and bottom of an element.
 @mixin section_padding($padding: 1em) {
@@ -11,25 +13,42 @@
 .site-header {
   position: relative;
   @include clearfix;
-  background-color: #EFE8D5;
+  @include linear-gradient(#658DB5, darken(#658DB5, 15));
+  border-bottom:black 1px solid;
+
   h1 {
   	margin:1.2em 0;
   	font-size:1.2em;
   }
+  height:50px;
 }
 
 .site-main {
   @include section_padding(2em);
-
-  @include media($medium-screen) {
-    //@include section_padding(5em);
-  }
+  background-color:#fff;
 }
 
 .site-footer {
   @include section_padding(1em);
   border-top: 1px solid #eee;
   text-align:center;
+  background-color:#eee;
+}
+
+
+.chart {
+	font-size:13em;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	width:240px;
+	@include media($medium-screen - 3) {
+		margin:0 0 0 .2em;
+		padding-top:.2em;
+		float:right;
+		width:auto;
+	}
+	
 }
 
 // ------------------------------------------------------------
@@ -44,27 +63,17 @@ h4, h5, h6 {
 // ------------------------------------------------------------
 // Site Nav
 // ------------------------------------------------------------
+$mobile-nav-screen: $medium-screen + 10;
 
 .site-nav {
 	@include clearfix;
 
 	.navbar-brand {
-		display: block;
-	    line-height: 0;
-	    padding: 2em 0;
+	    margin:0;
+	    padding-top: .6em;
 	    float: left;
-	    line-height: 0;
-
-	    @include media($medium-screen) {
-	      padding: 2em;
-			}
-
-	    i {
-	      font-size: 3em;
-	      line-height: 0;
-	      display: block;
-	      color: #002B36;
-	    }
+		font-size: 1.4em;
+		color: #002B36;
 	}
 
 	.site-logo {
@@ -77,18 +86,19 @@ h4, h5, h6 {
 		height: 0;
 		overflow: hidden;
 
-		@include media($medium-screen) {
+		@include media($mobile-nav-screen) {
 			height: auto;
+			float:right;
 		}
 
 		a {
 			@include trailing-hovers;
-			@include media($medium-screen) {
+			@include media($mobile-nav-screen) {
 				display: block;
 				float: left;
 				line-height: 0;
 		        font-weight: bold;
-		        color: #444;
+				color: #002B36;
 
 		        // I removed the top and bottom padding of the header
 		        // and fattened up the touch targets on these links.
@@ -103,7 +113,7 @@ h4, h5, h6 {
 		}
 
 		.nav-right {
-			@include media($medium-screen) {
+			@include media($mobile-nav-screen) {
 				float: right;
 			}
 		}
@@ -116,20 +126,20 @@ h4, h5, h6 {
 
 .mobile-menu {
 	position: absolute;
-	top: 2em;
+	top: 1.5em;
 	right: 1.5em;
 	z-index: 2;
 
-	@include media($medium-screen) {
+	@include media($mobile-nav-screen) {
 		display: none;
 	}
 
-  i {
-    font-size: 2em;
-    line-height: 0;
-    display: block;
-    color: #002B36;
-  }
+	i {
+		font-size: 2em;
+		line-height: 0;
+		display: block;
+		color: #002B36;
+	}
 
 	.icon {
 		display: block;
@@ -144,18 +154,18 @@ h4, h5, h6 {
 	.nav-links {
 		height: auto;
 		overflow: auto;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: rgba(239,232,213,.95);
-    box-shadow: 0 10px 10px rgba(0,43,54,.4);
+	    position: absolute;
+	    top: 100%;
+	    left: 0;
+	    right: 0;
+	    background: rgba(239,232,213,.95);
+	    box-shadow: 0 10px 10px rgba(0,43,54,.4);
 
 		a {
 			display: block;
 			margin: 2em 0;
 			text-align: center;
-      color: #002B36;
+      		color: #002B36;
 		}
 	}
 }
