@@ -61,12 +61,12 @@ body {
   	h2  {
   		margin-top: 0px;
   	}
-  	@include media($medium-screen) {
+  	@include media($large-screen) {
   	@include span-columns(3);
   }
   	 }
   article {
-  @include media($medium-screen) { 
+  @include media($large-screen) { 
   	@include span-columns(9); 
   }
   }
