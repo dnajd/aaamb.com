@@ -31,7 +31,9 @@ body {
   	@include outer-container;
 
 	aside {
-		
+		img {
+			margin-top: 20px;
+		}
 		ul {
 			display: none;
 		}
